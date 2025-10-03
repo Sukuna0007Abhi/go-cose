@@ -1,0 +1,19 @@
+{
+  "uuid": "ED25519-VERIFY-NEGATIVE-0001",
+  "title": "Sign1 - EdDSA with Ed25519 (verify - invalid signature)",
+  "description": "Verification should fail with invalid Ed25519 signature",
+  "key": {
+    "kty": "OKP",
+    "crv": "Ed25519",
+    "x": "11qYAYKxCrfVS_7TyWQHOg7hcvPapiMlrwIaaPcHURo"
+  },
+  "alg": "EdDSA",
+  "sign1::verify": {
+    "taggedCOSESign1": {
+      "cborHex": "d28445a201270300a104423131545468697320697320746865206f6e74656e742e5840ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff",
+      "cborDiag": "18([h'A201270300', {4: h'3131'}, h'546869732069732074686520636F6E74656E742E', h'FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF'])"
+    },
+    "external": "",
+    "shouldVerify": false
+  }
+}

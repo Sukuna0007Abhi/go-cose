@@ -1,0 +1,34 @@
+{
+  "uuid": "ED25519-SIGN-0001",
+  "title": "Sign1 - EdDSA with Ed25519 (sign)",
+  "description": "Sign with one signer using EdDSA with Ed25519",
+  "key": {
+    "kty": "OKP",
+    "crv": "Ed25519",
+    "x": "11qYAYKxCrfVS_7TyWQHOg7hcvPapiMlrwIaaPcHURo",
+    "d": "nWGxne_9WmC6hEr0kuwsxERJxWl7MmkZcDusAxyuf2A"
+  },
+  "alg": "EdDSA",
+  "sign1::sign": {
+    "payload": "546869732069732074686520636f6e74656e742e",
+    "protectedHeaders": {
+      "cborHex": "a201270300",
+      "cborDiag": "{1: -8, 3: 0}"
+    },
+    "unprotectedHeaders": {
+      "cborHex": "a104423131",
+      "cborDiag": "{4: '11'}"
+    },
+    "tbsHex": {
+      "cborHex": "846a5369676e61747572653145a20127030040545468697320697320746865206f6e74656e742e",
+      "cborDiag": "[\"Signature1\", h'A201270300', h'', h'546869732069732074686520636F6E74656E742E']"
+    },
+    "external": "",
+    "detached": false,
+    "expectedOutput": {
+      "cborHex": "d28445a201270300a10442313154546869732069732074686520636f6e74656e742e58407142fd2ff96d56db85bee905a76ba1d0b7321a95c8c4d3607c5781932b7afb8711497dfa751bf40b58b3bcc32300b1487f3db34085eef013bf08f4a44d6fef0d",
+      "cborDiag": "18([h'A201270300', {4: h'3131'}, h'546869732069732074686520636F6E74656E742E', h'7142FD2FF96D56DB85BEE905A76BA1D0B7321A95C8C4D3607C5781932B7AFB8711497DFA751BF40B58B3BCC32300B1487F3DB34085EEF013BF08F4A44D6FEF0D'])"
+    },
+    "fixedOutputLength": 32
+  }
+}
