@@ -212,6 +212,7 @@ func getSigner(tc *TestCase, private bool) (cose.Signer, cose.Verifier, error) {
 			if len(publicKey) != ed25519.PublicKeySize {
 				return nil, nil, errors.New("invalid Ed25519 public key size")
 			}
+			// Note: Ed448 would require different key size validation (57 bytes)
 			
 			var signer cose.Signer
 			var verifierKey ed25519.PublicKey
@@ -239,6 +240,9 @@ func getSigner(tc *TestCase, private bool) (cose.Signer, cose.Verifier, error) {
 				return nil, nil, err
 			}
 			return signer, verifier, nil
+		case "Ed448":
+			// Ed448 support would go here - requires golang.org/x/crypto/ed448
+			return nil, nil, errors.New("Ed448 not yet implemented")
 		default:
 			return nil, nil, errors.New("unsupported OKP curve: " + tc.Key["crv"])
 		}
@@ -325,6 +329,9 @@ func getKey(key Key, private bool) (crypto.Signer, error) {
 			// For public key only operations, we need to return a type that satisfies crypto.Signer
 			// but this won't work for verify-only operations. We'll handle this in getSigner.
 			return nil, errors.New("OKP public-only key not supported in this context")
+		case "Ed448":
+			// Ed448 support would require golang.org/x/crypto/ed448
+			return nil, errors.New("Ed448 not yet implemented")
 		default:
 			return nil, errors.New("unsupported OKP curve: " + key["crv"])
 		}
